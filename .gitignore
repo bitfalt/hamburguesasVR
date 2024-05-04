@@ -76,6 +76,7 @@ crashlytics-build.properties
 .DS_Store
 .AppleDouble
 .LSOverride
+/Restaurante_BurstDebugInformation_DoNotShip
 
 # Icon must end with two \r
 Icon
