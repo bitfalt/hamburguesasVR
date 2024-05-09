@@ -17,11 +17,28 @@ public class CocinarScript : MonoBehaviour
         if (other.CompareTag("oven"))
         {
             inContactWithOven = true;
+            // Start the timer when entering the oven
+            timer = 0f;
+            color1Applied = false;
+            color2Applied = false;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("oven"))
+        {
+            inContactWithOven = false;
+            // Reset the timer when exiting the oven
+            timer = 0f;
+            color1Applied = false;
+            color2Applied = false;
         }
     }
 
     private void Update()
     {
+        // Only update the timer if in contact with the oven
         if (inContactWithOven)
         {
             timer += Time.deltaTime;
