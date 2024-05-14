@@ -16,7 +16,7 @@ public class MeatScript : MonoBehaviour
     public void selectMeat()
     {
         torta.SetActive(true);
-        pop_up.SetActive(true);
+        //pop_up.SetActive(true);
 
         Vector3 scaleIncrement = new Vector3(scaleSpeed * scaleFactorX, scaleSpeed * scaleFactorY, scaleSpeed * scaleFactorZ) * Time.deltaTime;
         torta.GetComponent<Transform>().localScale += scaleIncrement;
