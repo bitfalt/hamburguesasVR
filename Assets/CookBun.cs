@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CookBun : MonoBehaviour
 {
-    public Color color1;
-    public Color color2;
+    public Material material1;
+    public Material material2;
 
     private bool inContactWithOven = false;
     private float timer = 0f;
@@ -46,25 +46,25 @@ public class CookBun : MonoBehaviour
             // Check if 5 seconds have passed and color 1 hasn't been applied yet
             if (timer >= 5f && !color1Applied)
             {
-                ApplyColor(color1);
+                ApplyColor(material1);
                 color1Applied = true;
             }
 
             // Check if 10 more seconds have passed and color 2 hasn't been applied yet
             if (timer >= 15f && !color2Applied)
             {
-                ApplyColor(color2);
+                ApplyColor(material2);
                 color2Applied = true;
             }
         }
     }
 
-    private void ApplyColor(Color color)
+    private void ApplyColor(Material material)
     {
         Renderer renderer = GetComponent<Renderer>();
         if (renderer != null)
         {
-            renderer.material.color = color;
+            renderer.material = material;
         }
     }
 }
