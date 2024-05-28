@@ -7,8 +7,8 @@ public class BurgerAssembler : MonoBehaviour
     private GameObject bottomBun;
     private GameObject topBun;
     private GameObject cookedMeat;
-    private GameObject lettuce;
-    private GameObject tomato;
+    public GameObject lettuce;
+    public GameObject tomato;
     
     private Vector3 bottomBunPosition = new Vector3(0.318f, 1.062f, -0.772f);
     private Vector3 meatPosition = new Vector3(0.318f, 1.162f, -0.772f);
