@@ -12,6 +12,8 @@ public class CookBun : MonoBehaviour
     private bool color1Applied = false;
     private bool color2Applied = false;
 
+    public BurgerAssembler burgerAssembler;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("oven"))
@@ -33,6 +35,14 @@ public class CookBun : MonoBehaviour
             timer = 0f;
             color1Applied = false;
             color2Applied = false;
+
+            if (gameObject.name == "gBun_down")
+            {
+                burgerAssembler.SetBottomBun(gameObject);
+            } else if (gameObject.name == "gBun")
+            {
+                burgerAssembler.SetTopBun(gameObject);
+            }
         }
     }
 
