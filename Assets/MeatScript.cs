@@ -6,11 +6,11 @@ public class MeatScript : MonoBehaviour
 {
     public GameObject torta;
     public GameObject pop_up;
-    public float scaleSpeed = 0.3f;
+    public float scaleSpeed = 0.1f;
     public Vector3 maxScale = new Vector3(0.15f, 0.15f, 0.15f);
 
     private float scaleFactorX = 0.04967953f / 0.02f; // ~2.484
-    private float scaleFactorY = 1.0f;
+    private float scaleFactorY = 0.06773441f;
     private float scaleFactorZ = 0.04967953f / 0.02f; // ~2.484
 
     public void selectMeat()

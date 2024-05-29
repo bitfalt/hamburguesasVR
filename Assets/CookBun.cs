@@ -6,13 +6,20 @@ public class CookBun : MonoBehaviour
 {
     public Material material1;
     public Material material2;
+    public AudioClip cookingSound; // Sonido mientras se cocina
+    public float cookingSoundVolume = 1.0f; // Volumen del sonido de cocción
 
     private bool inContactWithOven = false;
     private float timer = 0f;
     private bool color1Applied = false;
     private bool color2Applied = false;
+    private AudioSource audioSource; // Referencia al AudioSource
 
-    public BurgerAssembler burgerAssembler;
+    private void Start()
+    {
+        // Obtener la referencia al AudioSource adjunto al mismo objeto
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,6 +30,9 @@ public class CookBun : MonoBehaviour
             timer = 0f;
             color1Applied = false;
             color2Applied = false;
+
+            // Comenzar a reproducir el sonido de cocción
+            PlayCookingSound();
         }
     }
 
@@ -36,14 +46,9 @@ public class CookBun : MonoBehaviour
             color1Applied = false;
             color2Applied = false;
 
-            if (gameObject.name.Contains("gBun_down"))
-            {
-                burgerAssembler.SetBottomBun(gameObject);
-            }
-            else if (gameObject.name.Contains("gBun"))
-            {
-                burgerAssembler.SetTopBun(gameObject);
-            }
+            // Detener el sonido de cocción
+            StopCookingSound();
+
         }
     }
 
@@ -76,6 +81,25 @@ public class CookBun : MonoBehaviour
         if (renderer != null)
         {
             renderer.material = material;
+        }
+    }
+
+    private void PlayCookingSound()
+    {
+        if (audioSource != null && cookingSound != null)
+        {
+            audioSource.clip = cookingSound;
+            audioSource.volume = cookingSoundVolume; // Set the desired volume
+            audioSource.loop = true;
+            audioSource.Play();
+        }
+    }
+
+    private void StopCookingSound()
+    {
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Stop();
         }
     }
 }
