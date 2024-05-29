@@ -41,7 +41,7 @@ public class BurgerAssembler : MonoBehaviour
     public void SetBottomBun(GameObject bun)
     {
         bottomBun = bun;
-        bottomBun.transform.position = bottomBunPosition;
+        //bottomBun.transform.position = bottomBunPosition;
     }
 
     public void SetTopBun(GameObject bun)

@@ -36,10 +36,11 @@ public class CookBun : MonoBehaviour
             color1Applied = false;
             color2Applied = false;
 
-            if (gameObject.name == "gBun_down")
+            if (gameObject.name.Contains("gBun_down"))
             {
                 burgerAssembler.SetBottomBun(gameObject);
-            } else if (gameObject.name == "gBun")
+            }
+            else if (gameObject.name.Contains("gBun"))
             {
                 burgerAssembler.SetTopBun(gameObject);
             }
