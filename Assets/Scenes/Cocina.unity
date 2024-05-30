@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.1341472, b: 0.121078566, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -537,7 +537,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Etapa de sazonar completa, sigue la mezcla. Selecciona la cuchara
+  m_text: Etapa de sazonar completa. Sigue el cocinar la torta. Primero selecciona
+    el bowl para crear la torta y llevalo a la cocina. No la quemes!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -546,7 +547,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4291086718
   m_fontColor: {r: 0.49411765, g: 0.7882353, b: 0.76862746, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -2470,6 +2471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popup: {fileID: 1385520152}
+  isFinished: 0
 --- !u!54 &695474282
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2589,18 +2591,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1385520152}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
   m_HoverExited:
     m_PersistentCalls:
@@ -2843,7 +2833,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Bienvenido a la experiencia inmersiva de la Santar\xEDa, donde aprender\xE1s
-    a cocinar tus propias hamburguesas"
+    a cocinar tus propias hamburguesas. Empieza sazonando!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4879,8 +4869,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Etapa de mezcla completa, sigue darle la forma a la carne. Selecciona el
-    bowl
+  m_text: Calienta el pan y arma tu hamburguesa
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8539,6 +8528,7 @@ MonoBehaviour:
   material1: {fileID: 2100000, guid: 0e0b7d31bc72b4e1b8df502b9f88dc17, type: 2}
   material2: {fileID: 2100000, guid: c2404cb24c2c44fbcaeff43492da6445, type: 2}
   audioClip: {fileID: 8300000, guid: 83cf03b5a3f5f4524953e8b41422e98a, type: 3}
+  BellScript: {fileID: 695474280}
 --- !u!82 &1641896797
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13500,7 +13490,7 @@ GameObject:
   - component: {fileID: 1687651191}
   - component: {fileID: 1687651190}
   m_Layer: 0
-  m_Name: 'Mezclar Carne '
+  m_Name: Calienta el pan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14836,7 +14826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

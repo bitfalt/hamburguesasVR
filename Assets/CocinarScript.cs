@@ -8,6 +8,8 @@ public class CocinarScript : MonoBehaviour
     public Material material2;
     public AudioClip audioClip;
 
+    public BellScript BellScript;
+
     private bool inContactWithOven = false;
     private float timer = 0f;
     private bool color1Applied = false;
@@ -43,7 +45,8 @@ public class CocinarScript : MonoBehaviour
             timer = 0f;
             color1Applied = false;
             color2Applied = false;
-            PlayCookingSound();
+            StopCookingSound();
+
         }
     }
 
@@ -53,13 +56,19 @@ public class CocinarScript : MonoBehaviour
         if (inContactWithOven)
         {
             timer += Time.deltaTime;
-            
+
 
             // Check if 5 seconds have passed and color 1 hasn't been applied yet
             if (timer >= 10f && !color1Applied)
             {
                 ApplyColor(material1);
                 color1Applied = true;
+                if (BellScript != null)
+                {
+                    BellScript.setFinished();
+                    Debug.Log("BellScript.setFinished();");
+
+                }
             }
 
             // Check if 10 more seconds have passed and color 2 hasn't been applied yet
