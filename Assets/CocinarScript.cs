@@ -30,6 +30,7 @@ public class CocinarScript : MonoBehaviour
             timer = 0f;
             color1Applied = false;
             color2Applied = false;
+            PlayCookingSound();
         }
     }
 
@@ -42,6 +43,7 @@ public class CocinarScript : MonoBehaviour
             timer = 0f;
             color1Applied = false;
             color2Applied = false;
+            PlayCookingSound();
         }
     }
 
@@ -51,21 +53,20 @@ public class CocinarScript : MonoBehaviour
         if (inContactWithOven)
         {
             timer += Time.deltaTime;
+            
 
             // Check if 5 seconds have passed and color 1 hasn't been applied yet
-            if (timer >= 5f && !color1Applied)
+            if (timer >= 10f && !color1Applied)
             {
                 ApplyColor(material1);
                 color1Applied = true;
-                PlaySound();
             }
 
             // Check if 10 more seconds have passed and color 2 hasn't been applied yet
-            if (timer >= 15f && !color2Applied)
+            if (timer >= 20f && !color2Applied)
             {
                 ApplyColor(material2);
                 color2Applied = true;
-                PlaySound();
             }
         }
     }
@@ -78,11 +79,21 @@ public class CocinarScript : MonoBehaviour
             renderer.material = material;
         }
     }
-    private void PlaySound()
+    private void PlayCookingSound()
     {
-        if (audioSource != null && audioClip != null)
+        if (audioSource != null)
+
         {
-            audioSource.PlayOneShot(audioClip);
+            audioSource.loop = true;
+            audioSource.Play();
+        }
+    }
+
+    private void StopCookingSound()
+    {
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Stop();
         }
     }
 }
