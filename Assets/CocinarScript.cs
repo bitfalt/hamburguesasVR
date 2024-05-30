@@ -66,7 +66,6 @@ public class CocinarScript : MonoBehaviour
                 if (BellScript != null)
                 {
                     BellScript.setFinished();
-                    Debug.Log("BellScript.setFinished();");
 
                 }
             }
