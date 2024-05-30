@@ -6,20 +6,16 @@ public class BellScript : MonoBehaviour
     public GameObject popup;
     public AudioSource AudioClip;
 
-    private void OnTriggerEnter(Collider other)
+    public void bell()
     {
         AudioClip.Play();
-        
-
-        // Mostrar el pop-up
-        
         // Mostrar el pop-up
         if (popup != null)
         {
             popup.SetActive(true);
         }
-        
+
     }
 
-    
+
 }
